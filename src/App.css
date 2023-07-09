@@ -1,38 +1,359 @@
-.App {
-  text-align: center;
+
+#lobby {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: larger;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#game-board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    grid-template-rows: repeat(10, 0fr);
+    width: 600px; /* Adjust the width as per your requirement */
+    height: 600px; /* Adjust the height as per your requirement */
+    /* background-color: #a81313; Adjust the background color as desired */
   }
+
+#cell {
+    width : 60px;
+    height: 60px;
+    background-color: white; /* Adjust the cell color as desired */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+#snake-cell-77 {
+    position: absolute;
+    width: 80px;
+    height: 200px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 115px;
+    left: 220px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#snake-cell-93 {
+    position: absolute;
+    width: 100px;
+    height: 400px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 5px;
+    left: 370px;
+}
+
+#snake-cell-59 {
+    position: absolute;
+    width: 200px;
+    height: 360px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 220px;
+    left: 90px;
+}
+
+#snake-cell-99 {
+    position: absolute;
+    width: 50px;
+    height: 360px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 5px;
+    left: 30px;
+}
+
+#snake-cell-38 {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 360px;
+    left: 70px;
+}
+
+#snake-cell-48 {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 300px;
+    left: 450px;
+}
+
+#snake-cell-86 {
+    position: absolute;
+    width: 100px;
+    height: 450px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 50px;
+    left: 300px;
+}
+
+#blue {
+    /* position: absolute; */
+    width : 20px;
+    height: 20px;
+
+    /* top : 560px;
+    left: 20px; */
+}
+
+#red {
+    /* position: absolute; */
+    width : 20px;
+    height: 20px;
+
+    /* top : 560px;
+    left: 20px; */
+}
+
+.dice-rolling{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.roll{
+    margin-top: 20px;
+    width: 150px;
+    padding: 10px;   
+    background-color: cornflowerblue;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    
+}
+
+.display-bar{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    width: 600px;
+}
+
+.dice {
+    /* margin-top: 20px; */
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    cursor: pointer;
+}
+
+.red-color-box {
+    
+    /* margin-top: 20px; */
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    border: 5px solid black;
+    
+}
+
+.blue-color-box {
+    
+    /* margin-top: 20px; */
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: blue;
+    border: 5px solid black;
+
+}
+
+.dice-button {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.middle-dot {
+
+    --top: 50%;
+    --left: 50%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.bottom-left-dot {
+    --top: 80%;
+    --left: 20%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.bottom-middle-dot {
+    --top: 80%;
+    --left: 50%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.bottom-right-dot {
+    --top: 80%;
+    --left: 80%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.top-left-dot {
+    --top: 20%;
+    --left: 20%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.top-middle-dot {
+    --top: 20%;
+    --left: 50%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.top-right-dot {
+    --top: 20%;
+    --left: 80%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background-color: black;
+    border-radius: 50%;
+    transform:translateX(calc(var(--left)* -1)) translateY(calc(var(--top)* -1));
+    
+}
+
+.reset{
+    margin-top: 20px;
+    width: 150px;
+    padding: 10px;   
+    background-color:darkorchid;
+    border: 5px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+
+    
+}
+
+#ladder-cell-4{
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 380px;
+    left: 180px;
+}
+
+#ladder-cell-46{
+    position: absolute;
+    width: 100px;
+    height: 300px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 60px;
+    left: 300px;
+}
+
+#ladder-cell-57{
+    position: absolute;
+    width: 100px;
+    height: 290px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 10px;
+    left: 130px;
+}
+
+#ladder-cell-50{
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 150px;
+    left: 500px;
+}
+
+#ladder-cell-13{
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    /* Set the top, left, bottom, or right values to position the image */
+    top: 320px;
+    left: 380px;
 }
